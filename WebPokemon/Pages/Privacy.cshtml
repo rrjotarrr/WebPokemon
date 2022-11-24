@@ -1,8 +1,49 @@
 ﻿@page
 @model PrivacyModel
 @{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "Pokemon";
 }
 <h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<style>
+    .cards{
+        display: grid;
+        grid-template-columns: repeat(auto-fit,
+        minmax(200px,1fr));
+        gap:20px;
+    }
+
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+        height: 50%;
+    }
+</style>
+
+<div class="container">
+    <div class="cards">
+        @foreach (PokeApiNet.Pokemon pokemon in Model.Pokemon)
+    {
+        <div class="card">
+            <img src=@pokemon.Sprites.Other.DreamWorld.FrontDefault class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">@pokemon.Name</h5>
+                <p class="card-text">Exp: @pokemon.BaseExperience</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    }
+    </div>
+    
+</div>
+
+
+
+
+
+
+
+
+
