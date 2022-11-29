@@ -1,0 +1,25 @@
+﻿.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap: 20px;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: 50%;
+}
+
+.card {
+    background-image: url("/images/fondoPokemon.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    align-items: center;
+    text-align: center;
+}
+
+.card-title{
+    text-transform: uppercase;
+}

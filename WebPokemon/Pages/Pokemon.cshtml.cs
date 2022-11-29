@@ -1,15 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using PokeApiNet;
 
 namespace WebPokemon.Pages
 {
-    public class PrivacyModel : PageModel
+    public class PokemonModel : PageModel
     {
-        private readonly ILogger<PrivacyModel> _logger;
+        private readonly ILogger<PokemonModel> _logger;
         public List<Pokemon> Pokemon = new List<Pokemon>();
 
-        public PrivacyModel(ILogger<PrivacyModel> logger)
+        public PokemonModel(ILogger<PokemonModel> logger)
         {
             _logger = logger;
         }
@@ -23,7 +23,7 @@ namespace WebPokemon.Pages
             Pokemon pokemon = await pokeClient.GetResourceAsync<Pokemon>("ho-oh");
 
             // ... or by id
-            var pageResponse = await pokeClient.GetNamedResourcePageAsync<Pokemon>(12,0);
+            var pageResponse = await pokeClient.GetNamedResourcePageAsync<Pokemon>(12, 0);
 
             //Create a list of tasks for calling getting the details of each pokemon from the list above
             var tasks = pageResponse.Results

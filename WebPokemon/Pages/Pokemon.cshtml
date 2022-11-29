@@ -1,0 +1,53 @@
+﻿@page
+@model PokemonModel
+@{
+    ViewData["Title"] = "Pokemon";
+    var Modalanimation = new Syncfusion.EJ2.Popups.DialogAnimationSettings { Effect = Syncfusion.EJ2.Popups.DialogEffect.None };
+    var Okbutton = new
+    {
+        content = "OK",
+        isPrimary = true
+    };
+}
+
+<link href="~/css/pokemon.css" rel="stylesheet" />
+
+<h1>@ViewData["Title"]</h1>
+<div class="container">
+    <div class="cards">
+        @foreach (PokeApiNet.Pokemon pokemon in Model.Pokemon)
+        {
+            <div class="card">
+                <img src=@pokemon.Sprites.Other.DreamWorld.FrontDefault class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">@pokemon.Name</h5>
+                    <p class="card-text">Exp: @pokemon.BaseExperience</p>
+                    <a class="btn btn-primary" onclick="openDialog()">INFO</a>
+                </div>
+            </div>
+        }
+    </div>
+
+</div>
+
+<div id="container" style="height:400px;">
+    <ejs-dialog id="dialog" header="Dialog" isModal="true" allowDragging="true" content="This is a Dialog with content" target="#container"
+    width="250px" showCloseIcon="true" created="dialogCreated">
+    </ejs-dialog>
+</div>
+
+<script>
+
+    function openDialog() {
+        var dialog = document.getElementById("dialog").ej2_instances[0];
+
+        dialog.show();
+    }
+
+    function dialogCreated(idPokemon){
+        var dialog = document.getElementById("dialog").ej2_instances[0];
+
+        dialog.hide();
+    }
+
+</script>

@@ -13,4 +13,8 @@
     <PackageReference Include="Syncfusion.Licensing" Version="20.3.0.57" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
 </Project>
